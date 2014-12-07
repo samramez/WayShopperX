@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.samramez.wayshopperx" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/iclauncher"
@@ -20,8 +22,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ShoppingList"
+            android:label="@string/title_activity_shopping_list" >
+        </activity>
+        <activity
+            android:name=".StoreWayFinder"
+            android:label="@string/title_activity_store_way_finder" >
+        </activity>
+        <activity
+            android:name=".ItemWayFinder"
+            android:label="@string/title_activity_item_way_finder" >
+        </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-
 
 </manifest>

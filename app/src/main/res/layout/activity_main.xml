@@ -66,7 +66,7 @@
         android:layout_marginTop="18dp"
         android:text="Find Way Inside Store"
         android:textSize="15sp"
-        android:onClick="" />
+        android:onClick="goToStoreWayFinder" />
 
     <Button
         android:id="@+id/findItemButton"
@@ -75,6 +75,6 @@
         android:layout_marginTop="18dp"
         android:text="Find Item Inside Store"
         android:textSize="15sp"
-        android:onClick=""  />
+        android:onClick="goToItemWayFinder"  />
 
 </LinearLayout>
