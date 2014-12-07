@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.wayshopper.MainActivity"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/way_shopper"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="18dp" >
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="33dp"
+            android:ems="10"
+            android:text="@string/search_store"
+            android:textSize="10sp"
+            android:textStyle="italic" >
+
+            <requestFocus />
+        </EditText>
+
+        <SearchView
+            android:id="@+id/searchView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="bottom"
+            android:onClick="" >
+        </SearchView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/shoppingListButton"
+        style="@style/AppTheme"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Shopping List"
+        android:textSize="15sp"
+        android:onClick="goToShoppingList"  />
+
+    <Button
+        android:id="@+id/findWayButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Find Way Inside Store"
+        android:textSize="15sp"
+        android:onClick="" />
+
+    <Button
+        android:id="@+id/findItemButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Find Item Inside Store"
+        android:textSize="15sp"
+        android:onClick=""  />
+
+</LinearLayout>
