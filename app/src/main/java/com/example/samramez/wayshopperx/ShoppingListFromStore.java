@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class ShoppingList extends ActionBarActivity implements DidComeFromHome{
+public class ShoppingListFromStore extends ActionBarActivity{
 
     private Button addButton;
     public EditText addItemEditText;
@@ -42,12 +42,12 @@ public class ShoppingList extends ActionBarActivity implements DidComeFromHome{
     // a method to inflate item to the main activity.
     private void addItem() {
 
+        //making the Save Button InVisible
+        findViewById(R.id.shoppingListSaveButton).setVisibility(View.INVISIBLE);
 
-        //making the Save Button Visible
-        findViewById(R.id.shoppingListSaveButton).setVisibility(View.VISIBLE);
+        //making the Submit Button Visible
+        findViewById(R.id.shoppingListSubmitButton).setVisibility(View.VISIBLE);
 
-        //making the Submit Button InVisible
-        findViewById(R.id.shoppingListSubmitButton).setVisibility(View.INVISIBLE);
 
 
         // Instantiate a new "row" view.
@@ -129,22 +129,19 @@ public class ShoppingList extends ActionBarActivity implements DidComeFromHome{
 
         //TODO : make the list save
 
-        Intent intent = new Intent(ShoppingList.this, MainActivity.class);
+        Intent intent = new Intent(ShoppingListFromStore.this, MainActivity.class);
         startActivity(intent);
-
-
-
 
     }
 
     public void dontSaveAndGoToMainPage(View view) {
-        Intent intent = new Intent(ShoppingList.this, MainActivity.class);
+        Intent intent = new Intent(ShoppingListFromStore.this, MainActivity.class);
         startActivity(intent);
     }
 
     public void saveAndGoToMap(View view) {
 
-        Intent intent = new Intent(ShoppingList.this, MainActivity.class);
+        Intent intent = new Intent(ShoppingListFromStore.this, MainActivity.class);
         startActivity(intent);
     }
 

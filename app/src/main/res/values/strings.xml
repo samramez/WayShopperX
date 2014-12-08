@@ -30,5 +30,6 @@
     </string-array>
 
     <string name="title_activity_choose_list">Choose List</string>
+    <string name="title_activity_shopping_list_from_store">ShoppingListFromStore</string>
 
 </resources>

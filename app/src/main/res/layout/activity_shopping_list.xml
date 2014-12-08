@@ -76,6 +76,15 @@
         android:onClick="saveAndGoToMainPage"
         android:visibility="invisible"/>
 
+    <Button
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/shoppingListSubmitButton"
+        android:layout_gravity="right|bottom"
+        android:onClick="saveAndGoToMap"
+        android:visibility="invisible"/>
+
 
 
 

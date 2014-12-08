@@ -38,6 +38,10 @@
             android:name=".ChooseList"
             android:label="@string/title_activity_choose_list" >
         </activity>
+        <activity
+            android:name=".ShoppingListFromStore"
+            android:label="@string/title_activity_shopping_list_from_store" >
+        </activity>
     </application>
 
 </manifest>

@@ -113,6 +113,9 @@ public class StoreWayFinder extends ActionBarActivity {
 
         zipCodeImageButton.setBackgroundResource(R.drawable.ic_label_black_48dp);
 
+        Toast.makeText(this, "Prepare The Shopping List!",
+                Toast.LENGTH_LONG).show();
+
         Intent intent = new Intent(StoreWayFinder.this, ChooseList.class);
         startActivity(intent);
 
@@ -121,7 +124,6 @@ public class StoreWayFinder extends ActionBarActivity {
     public void dontSaveAndGoToMainPage(View view) {
         Toast.makeText(this, "Nothing was saved",
                 Toast.LENGTH_SHORT).show();
-        //TODO: this Toasting shit is not working!
 
         //TODO : make the list save
 
