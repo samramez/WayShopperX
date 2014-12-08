@@ -15,7 +15,7 @@
         </activity>
         <activity
             android:name=".Splash"
-            android:label="@string/title_activity_splash" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,6 +41,10 @@
         <activity
             android:name=".ShoppingListFromStore"
             android:label="@string/title_activity_shopping_list_from_store" >
+        </activity>
+        <activity
+            android:name=".ItemFinding"
+            android:label="@string/title_activity_item_finding" >
         </activity>
     </application>
 

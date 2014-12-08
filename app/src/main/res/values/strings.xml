@@ -31,5 +31,16 @@
 
     <string name="title_activity_choose_list">Choose List</string>
     <string name="title_activity_shopping_list_from_store">ShoppingListFromStore</string>
+    <string name="title_activity_item_finding">ItemFinding</string>
+
+    <string-array name="items">
+        <item>Start</item>
+        <item>Apples</item>
+        <item>Meat</item>
+        <item>Eggs</item>
+        <item>Juice</item>
+        <item>Nuts</item>
+        <item>Cashier</item>
+    </string-array>
 
 </resources>

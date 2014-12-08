@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 public class StoreWayFinder extends ActionBarActivity {
 
-
     ImageButton zipCodeImageButton;
     private Spinner shopSpinner;
 

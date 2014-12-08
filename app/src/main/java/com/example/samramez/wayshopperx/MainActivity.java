@@ -45,12 +45,14 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void goToStoreWayFinder(View view) {
+
         Intent intent = new Intent(MainActivity.this, StoreWayFinder.class);
         startActivity(intent);
     }
 
 
     public void goToItemWayFinder(View view) {
+
         Intent intent = new Intent(MainActivity.this, ItemWayFinder.class);
         startActivity(intent);
     }
