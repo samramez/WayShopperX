@@ -44,6 +44,9 @@ public class ShoppingList extends ActionBarActivity {
     // a method to inflate item to the main activity.
     private void addItem() {
 
+        //making the Save Button Visible
+        findViewById(R.id.shoppingListSaveButton).setVisibility(View.VISIBLE);
+
         // Instantiate a new "row" view.
         final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
                 R.layout.list_item_inflate, mContainerView, false);
@@ -115,7 +118,7 @@ public class ShoppingList extends ActionBarActivity {
     }
 
 
-    public void saveAndgoToMainPage(View view) {
+    public void saveAndGoToMainPage(View view) {
 
         Toast.makeText(this, "List Saved",
                 Toast.LENGTH_SHORT).show();

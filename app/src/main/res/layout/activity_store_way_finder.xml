@@ -12,7 +12,9 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout">
+        android:id="@+id/zipCodeLinearLayout"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="40dp">
 
         <EditText
             android:layout_width="wrap_content"
@@ -21,6 +23,7 @@
             android:id="@+id/zipCodeEditText"
             android:text="Enter your Zip Code"
             android:layout_weight="1"
+            android:layout_marginRight="100dp"
             >
         </EditText>
 
@@ -29,24 +32,41 @@
             android:layout_height="wrap_content"
             android:text="New Button"
             android:id="@+id/zipCodeButton"
-            android:background="@drawable/ic_label_outline_black_48dp"
             android:layout_alignBottom="@+id/zipCodeEditText"
             android:layout_alignRight="@+id/zipCodeEditText"
-            android:layout_alignEnd="@+id/zipCodeEditText">
+            android:layout_alignEnd="@+id/zipCodeEditText"
+            android:onClick="zipCodeClicked">
         </ImageButton>
 
-       </LinearLayout>
+    </LinearLayout>
 
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:id="@+id/storeLinearLayout"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="40dp"
+        android:visibility="invisible">
 
 
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/spinnerButton"
+            android:background="@drawable/ic_label_outline_black_48dp"
+            android:layout_alignBottom="@+id/zipCodeEditText"
+            android:layout_alignRight="@+id/zipCodeEditText"
+            android:layout_alignEnd="@+id/zipCodeEditText">
+        </ImageButton>
 
     </LinearLayout>
 

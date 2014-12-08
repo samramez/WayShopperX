@@ -60,21 +60,23 @@
     android:textColor="?android:textColorSecondary" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:text="Back"
         android:id="@+id/shoppingListBackButton"
         android:layout_gravity="left|bottom"
-        android:onClick="saveAndgoToMainPage"
-       />
+        android:onClick="dontSaveAndGoToMainPage"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:text="Save"
         android:id="@+id/shoppingListSaveButton"
         android:layout_gravity="right|bottom"
-        android:onClick="dontSaveAndGoToMainPage"/>
+        android:onClick="saveAndGoToMainPage"
+        android:visibility="invisible"/>
+
+
 
 
 </FrameLayout>
