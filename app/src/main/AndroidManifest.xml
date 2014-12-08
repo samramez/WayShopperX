@@ -34,6 +34,10 @@
             android:name=".ItemWayFinder"
             android:label="@string/title_activity_item_way_finder" >
         </activity>
+        <activity
+            android:name=".ChooseList"
+            android:label="@string/title_activity_choose_list" >
+        </activity>
     </application>
 
 </manifest>

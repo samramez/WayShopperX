@@ -1,5 +1,6 @@
 package com.example.samramez.wayshopperx;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -9,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 
 public class StoreWayFinder extends ActionBarActivity {
@@ -99,11 +101,32 @@ public class StoreWayFinder extends ActionBarActivity {
     // The code that says what happens when Zip Code is entered
     public void zipCodeClicked(View view) {
 
-        zipCodeImageButton.setImageResource(R.drawable.ic_label_black_48dp);
+        zipCodeImageButton.setBackgroundResource(R.drawable.ic_label_black_48dp);
 
         //findViewById(R.id.coffee_list).setVisibility(View.GONE);
         findViewById(R.id.storeLinearLayout).setVisibility(View.VISIBLE);
 
+    }
+
+
+    public void goToChoosingList(View view) {
+
+        zipCodeImageButton.setBackgroundResource(R.drawable.ic_label_black_48dp);
+
+        Intent intent = new Intent(StoreWayFinder.this, ChooseList.class);
+        startActivity(intent);
+
+    }
+
+    public void dontSaveAndGoToMainPage(View view) {
+        Toast.makeText(this, "Nothing was saved",
+                Toast.LENGTH_SHORT).show();
+        //TODO: this Toasting shit is not working!
+
+        //TODO : make the list save
+
+        Intent intent = new Intent(StoreWayFinder.this, MainActivity.class);
+        startActivity(intent);
 
     }
 }

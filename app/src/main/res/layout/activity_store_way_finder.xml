@@ -55,7 +55,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spinner"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:layout_marginRight="100dp"/>
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -65,8 +66,29 @@
             android:background="@drawable/ic_label_outline_black_48dp"
             android:layout_alignBottom="@+id/zipCodeEditText"
             android:layout_alignRight="@+id/zipCodeEditText"
-            android:layout_alignEnd="@+id/zipCodeEditText">
+            android:layout_alignEnd="@+id/zipCodeEditText"
+            android:onClick="goToChoosingList">
         </ImageButton>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="bottom">
+
+
+        <Button
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:id="@+id/shoppingListBackButton"
+            android:layout_gravity="left|bottom"
+            android:onClick="dontSaveAndGoToMainPage"/>
 
     </LinearLayout>
 
