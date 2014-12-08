@@ -1,7 +1,8 @@
 package com.example.samramez.wayshopperx;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class ShoppingList extends ActionBarActivity {
@@ -45,8 +47,6 @@ public class ShoppingList extends ActionBarActivity {
         // Instantiate a new "row" view.
         final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
                 R.layout.list_item_inflate, mContainerView, false);
-
-
 
         //getting the entered value from EditText
         //String item = addItemEditText.getText().toString();
@@ -115,4 +115,24 @@ public class ShoppingList extends ActionBarActivity {
     }
 
 
+    public void saveAndgoToMainPage(View view) {
+
+        Toast.makeText(this, "List Saved",
+                Toast.LENGTH_SHORT).show();
+        //TODO: this Toasting shit is not working!
+
+        //TODO : make the list save
+
+        Intent intent = new Intent(ShoppingList.this, MainActivity.class);
+        startActivity(intent);
+
+
+
+
+    }
+
+    public void dontSaveAndGoToMainPage(View view) {
+        Intent intent = new Intent(ShoppingList.this, MainActivity.class);
+        startActivity(intent);
+    }
 }
