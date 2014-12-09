@@ -42,52 +42,69 @@ public class ShoppingList extends ActionBarActivity implements DidComeFromHome{
     // a method to inflate item to the main activity.
     private void addItem() {
 
-
-        //making the Save Button Visible
-        findViewById(R.id.shoppingListSaveButton).setVisibility(View.VISIBLE);
-
-        //making the Submit Button InVisible
-        findViewById(R.id.shoppingListSubmitButton).setVisibility(View.INVISIBLE);
-
-
-        // Instantiate a new "row" view.
-        final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
-                R.layout.list_item_inflate, mContainerView, false);
-
-        //getting the entered value from EditText
-        //String item = addItemEditText.getText().toString();
-
-        // Set the text in the new row to a random item.
-//        ((TextView) newView.findViewById(android.R.id.text1)).setText(
-//                ITEMS[(int) (Math.random() * ITEMS.length)]);
-
+        // This is what has been written in the EditBox
         String item;
         item = addItemEditText.getText().toString();
-        ((TextView) newView.findViewById(android.R.id.text1)).setText(item);
+
+        if(
+                item.equalsIgnoreCase("apple") ||
+                item.equalsIgnoreCase("meat") ||
+                item.equalsIgnoreCase("juice") ||
+                item.equalsIgnoreCase("nuts") ||
+                item.equalsIgnoreCase("eggs")){
 
 
-        // Set a click listener for the "X" button in the row that will remove the row.
-        newView.findViewById(R.id.delete_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Remove the row from its parent (the container view).
-                // Because mContainerView has android:animateLayoutChanges set to true,
-                // this removal is automatically animated.
-                mContainerView.removeView(newView);
+            //item exist and we want to add it to the list
 
-                // If there are no rows remaining, show the empty view.
-                if (mContainerView.getChildCount() == 0) {
-                    findViewById(android.R.id.empty).setVisibility(View.VISIBLE);
+            //making the Save Button Visible
+            findViewById(R.id.shoppingListSaveButton).setVisibility(View.VISIBLE);
+
+            //making the Submit Button InVisible
+            findViewById(R.id.shoppingListSubmitButton).setVisibility(View.INVISIBLE);
+
+
+            // Instantiate a new "row" view.
+            final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
+                    R.layout.list_item_inflate, mContainerView, false);
+
+            //getting the entered value from EditText
+            //String item = addItemEditText.getText().toString();
+
+            // Set the text in the new row to a random item.
+//          ((TextView) newView.findViewById(android.R.id.text1)).setText(
+//                ITEMS[(int) (Math.random() * ITEMS.length)]);
+
+            ((TextView) newView.findViewById(android.R.id.text1)).setText(item);
+
+            // Set a click listener for the "X" button in the row that will remove the row.
+            newView.findViewById(R.id.delete_button).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // Remove the row from its parent (the container view).
+                    // Because mContainerView has android:animateLayoutChanges set to true,
+                    // this removal is automatically animated.
+                    mContainerView.removeView(newView);
+
+                    // If there are no rows remaining, show the empty view.
+                    if (mContainerView.getChildCount() == 0) {
+                        findViewById(android.R.id.empty).setVisibility(View.VISIBLE);
+                    }
                 }
-            }
-        });
+            });
 
-        // Because mContainerView has android:animateLayoutChanges set to true,
-        // adding this view is automatically animated.
-        mContainerView.addView(newView, 0);
+            // Because mContainerView has android:animateLayoutChanges set to true,
+            // adding this view is automatically animated.
+            mContainerView.addView(newView, 0);
 
-        //clear the EditText for the next thing
-        addItemEditText.setText("");
+            //clear the EditText for the next thing
+            addItemEditText.setText("");
+
+
+        } else{
+            Toast.makeText(this, "Item doesn't exist in this store",
+                Toast.LENGTH_LONG).show();
+        }
+
     }
 
 
@@ -95,7 +112,7 @@ public class ShoppingList extends ActionBarActivity implements DidComeFromHome{
      * A static list of item names.
      */
     private static final String[] ITEMS = new String[]{
-            "Apple", "Orange", "Juice", "Meat", "Water",
+            "Apple", "Orange", "Juice", "Meat",
             "Cheese", "Eggs", "Ice Cream", "Butter", "Bread",
             "Nutella",
     };

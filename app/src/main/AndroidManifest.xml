@@ -46,6 +46,10 @@
             android:name=".ItemFinding"
             android:label="@string/title_activity_item_finding" >
         </activity>
+        <activity
+            android:name=".Map"
+            android:label="@string/title_activity_map" >
+        </activity>
     </application>
 
 </manifest>
