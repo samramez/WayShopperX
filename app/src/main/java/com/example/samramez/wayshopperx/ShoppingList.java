@@ -1,8 +1,8 @@
 package com.example.samramez.wayshopperx;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class ShoppingList extends ActionBarActivity implements DidComeFromHome{
+public class ShoppingList extends Activity implements DidComeFromHome{
 
     private Button addButton;
     public EditText addItemEditText;
@@ -67,12 +67,41 @@ public class ShoppingList extends ActionBarActivity implements DidComeFromHome{
             final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
                     R.layout.list_item_inflate, mContainerView, false);
 
-            //getting the entered value from EditText
-            //String item = addItemEditText.getText().toString();
 
-            // Set the text in the new row to a random item.
-//          ((TextView) newView.findViewById(android.R.id.text1)).setText(
-//                ITEMS[(int) (Math.random() * ITEMS.length)]);
+            /*
+            // ================================
+            //Test
+
+            ArrayList<String> hSet = new ArrayList<String>();
+            //LinkedList<String> hSet = new LinkedList<String>()
+            //HashSet<String> hSet = new HashSet<String>();
+            hSet.add(new String("apple"));
+            hSet.add(new String("meat"));
+            hSet.add(new String("eggs"));
+            hSet.add(new String("juice"));
+            hSet.add(new String("nuts"));
+
+            java.util.Collections.sort(hSet);
+            String [] listArray = hSet.toArray(new String[hSet.size()]);
+
+            String result = "";
+//            for(int i=0; i<hSet.size() ; i++){
+//                result += hSet.get(i) + " - ";
+//            }
+            for(int i=0; i<listArray.length ; i++){
+                result += listArray[i] + " - ";
+            }
+
+
+             ((TextView) newView.findViewById(android.R.id.text1)).setText(result);
+
+
+            // ================================
+            //Test
+
+            */
+
+            item.toLowerCase();
 
             ((TextView) newView.findViewById(android.R.id.text1)).setText(item);
 
@@ -160,6 +189,8 @@ public class ShoppingList extends ActionBarActivity implements DidComeFromHome{
     }
 
     public void saveAndGoToMap(View view) {
+
+
 
         Intent intent = new Intent(ShoppingList.this, MainActivity.class);
         startActivity(intent);

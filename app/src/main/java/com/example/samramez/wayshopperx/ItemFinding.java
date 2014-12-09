@@ -1,6 +1,6 @@
 package com.example.samramez.wayshopperx;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 
-public class ItemFinding extends ActionBarActivity {
+public class ItemFinding extends Activity {
 
     private Spinner fromItemSpinner;
     private Spinner targetItemshopSpinner;

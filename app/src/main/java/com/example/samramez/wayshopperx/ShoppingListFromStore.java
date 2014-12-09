@@ -1,8 +1,8 @@
 package com.example.samramez.wayshopperx;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,12 +13,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 
-public class ShoppingListFromStore extends ActionBarActivity{
+
+public class ShoppingListFromStore extends Activity {
 
     private Button addButton;
     public EditText addItemEditText;
     private ViewGroup mContainerView;
+
+    //url for the WebView
+    public static String url = "";
+
+    //Generating the HashSet
+    public static ArrayList<String> hSet = new ArrayList<String>();
+
+    public static String[] listArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,49 +63,53 @@ public class ShoppingListFromStore extends ActionBarActivity{
                         item.equalsIgnoreCase("nuts") ||
                         item.equalsIgnoreCase("eggs"))
             {
-            //item exist and we want to add it to the list
 
-            //making the Save Button Visible
-            findViewById(R.id.shoppingListSaveButton).setVisibility(View.VISIBLE);
+            if (  hSet.contains(new String(item)) == false  ){
+                //item exist and we want to add it to the list
 
-            //making the Submit Button InVisible
-            findViewById(R.id.shoppingListSubmitButton).setVisibility(View.INVISIBLE);
+                //We add the item to the HashSet List
+                hSet.add(item);
 
-            // Instantiate a new "row" view.
-            final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
-                    R.layout.list_item_inflate, mContainerView, false);
+                //making the Save Button Visible
+                findViewById(R.id.shoppingListSaveButton).setVisibility(View.VISIBLE);
 
-            //getting the entered value from EditText
-            //String item = addItemEditText.getText().toString();
+                //making the Submit Button InVisible
+                findViewById(R.id.shoppingListSubmitButton).setVisibility(View.INVISIBLE);
 
-            // Set the text in the new row to a random item.
-//          ((TextView) newView.findViewById(android.R.id.text1)).setText(
-//                ITEMS[(int) (Math.random() * ITEMS.length)]);
+                // Instantiate a new "row" view.
+                final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
+                        R.layout.list_item_inflate, mContainerView, false);
 
-            ((TextView) newView.findViewById(android.R.id.text1)).setText(item);
+                ((TextView) newView.findViewById(android.R.id.text1)).setText(item);
 
-            // Set a click listener for the "X" button in the row that will remove the row.
-            newView.findViewById(R.id.delete_button).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // Remove the row from its parent (the container view).
-                    // Because mContainerView has android:animateLayoutChanges set to true,
-                    // this removal is automatically animated.
-                    mContainerView.removeView(newView);
+                // Set a click listener for the "X" button in the row that will remove the row.
+                newView.findViewById(R.id.delete_button).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // Remove the row from its parent (the container view).
+                        // Because mContainerView has android:animateLayoutChanges set to true,
+                        // this removal is automatically animated.
+                        mContainerView.removeView(newView);
 
-                    // If there are no rows remaining, show the empty view.
-                    if (mContainerView.getChildCount() == 0) {
-                        findViewById(android.R.id.empty).setVisibility(View.VISIBLE);
+                        // If there are no rows remaining, show the empty view.
+                        if (mContainerView.getChildCount() == 0) {
+                            findViewById(android.R.id.empty).setVisibility(View.VISIBLE);
+                        }
                     }
-                }
-            });
+                });
 
-            // Because mContainerView has android:animateLayoutChanges set to true,
-            // adding this view is automatically animated.
-            mContainerView.addView(newView, 0);
+                // Because mContainerView has android:animateLayoutChanges set to true,
+                // adding this view is automatically animated.
+                mContainerView.addView(newView, 0);
 
-            //clear the EditText for the next thing
-            addItemEditText.setText("");
+                //clear the EditText for the next thing
+                addItemEditText.setText("");
+            }
+            else{
+                Toast.makeText(this, "Item already added",
+                        Toast.LENGTH_LONG).show();
+            }
+
         }
 
         else{
@@ -156,7 +170,11 @@ public class ShoppingListFromStore extends ActionBarActivity{
 
     public void saveAndGoToMap(View view) {
 
-        Intent intent = new Intent(ShoppingListFromStore.this, MainActivity.class);
+        //converting HashSet to String Array
+        java.util.Collections.sort(hSet);
+        String [] listArray = hSet.toArray(new String[hSet.size()]);
+
+        Intent intent = new Intent(ShoppingListFromStore.this, Map.class);
         startActivity(intent);
     }
 
