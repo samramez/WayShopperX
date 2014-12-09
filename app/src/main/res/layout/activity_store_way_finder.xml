@@ -24,19 +24,41 @@
             android:text="Enter your Zip Code"
             android:layout_weight="1"
             android:layout_marginRight="100dp"
+            android:onClick="TextFieldClicked"
             >
         </EditText>
 
-        <ImageButton
+        <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/zipCodeButton"
-            android:layout_alignBottom="@+id/zipCodeEditText"
-            android:layout_alignRight="@+id/zipCodeEditText"
-            android:layout_alignEnd="@+id/zipCodeEditText"
-            android:onClick="zipCodeClicked">
-        </ImageButton>
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/zipCodeButton"
+                android:layout_alignBottom="@+id/zipCodeEditText"
+                android:layout_alignRight="@+id/zipCodeEditText"
+                android:layout_alignEnd="@+id/zipCodeEditText"
+                android:onClick="zipCodeClicked">
+            </ImageButton>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/zipCodeButtonChecked"
+                android:background="@drawable/tick"
+                android:layout_alignBottom="@+id/zipCodeEditText"
+                android:layout_alignRight="@+id/zipCodeEditText"
+                android:layout_alignEnd="@+id/zipCodeEditText"
+                android:onClick="zipCodeClicked"
+                android:visibility="invisible"
+                >
+            </ImageButton>
+
+            </FrameLayout>
+
 
     </LinearLayout>
 
@@ -63,7 +85,7 @@
             android:layout_height="wrap_content"
             android:text="New Button"
             android:id="@+id/spinnerButton"
-            android:background="@drawable/ic_label_outline_black_48dp"
+            android:background="@drawable/arrow_right"
             android:layout_alignBottom="@+id/zipCodeEditText"
             android:layout_alignRight="@+id/zipCodeEditText"
             android:layout_alignEnd="@+id/zipCodeEditText"

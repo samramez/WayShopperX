@@ -49,65 +49,8 @@ public class Map extends Activity {
     String[] case23= {eggs, meat, nuts};
     String[] case24= {juice, meat, nuts};
 
-    String m = arrayToString(list);
-    String n = arrayToString(case1);
 
-    String sam = "sam";
-    String tan = "tan";
 
-    private String webUrl(String[] list){
-
-        if(Arrays.equals(list,case1))
-            url = "";
-        if(Arrays.equals(list,case2))
-            url = "";
-        if(Arrays.equals(list,case3))
-            url = "";
-        if(Arrays.equals(list,case4))
-            url = "";
-        if(Arrays.equals(list,case5))
-            url = "";
-        if(Arrays.equals(list,case6))
-            url = "";
-        if(Arrays.equals(list,case7))
-            url = "";
-        if(Arrays.equals(list,case8))
-            url = "";
-        if(Arrays.equals(list,case9))
-            url = "";
-        if(Arrays.equals(list,case10))
-            url = "";
-        if(Arrays.equals(list,case11))
-            url = "";
-        if(Arrays.equals(list,case12))
-            url = "";
-        if(Arrays.equals(list,case13))
-            url = "";
-        if(Arrays.equals(list,case14))
-            url = "";
-        if(Arrays.equals(list,case15))
-            url = "";
-        if(Arrays.equals(list,case16))
-            url = "";
-        if(Arrays.equals(list,case17))
-            url = "";
-        if(Arrays.equals(list,case18))
-            url = "";
-        if(Arrays.equals(list,case19))
-            url = "";
-        if(Arrays.equals(list,case20))
-            url = "";
-        if(Arrays.equals(list,case21))
-            url = "";
-        if(Arrays.equals(list,case22))
-            url = "";
-        if(Arrays.equals(list,case23))
-            url = "";
-        if(Arrays.equals(list,case24))
-            url = "";
-
-        return url;
-    }
 
 
 
@@ -122,6 +65,9 @@ public class Map extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+        // getting the web url from the list
+        url = getWebUrl(list);
 
         myWebView = (WebView) findViewById(R.id.webview);
         myWebView.loadUrl(url);
@@ -163,4 +109,81 @@ public class Map extends Activity {
         }
         return result;
     }
+
+    private String urlGenerator(String[] array){
+        String webUrl = "http://hapoojoon.com/subMap/storeMap/";
+        for(int i=0; i<array.length; i++){
+            webUrl += array[i] + "-";
+        }
+        webUrl += ".html";
+
+        return webUrl;
+    }
+
+    private String urlGeneratorFromStart(String[] array){
+        String webUrl = "http://hapoojoon.com/subMap/storeMap/start-";
+        for(int i=0; i<array.length; i++){
+            webUrl += array[i] + "-";
+        }
+        webUrl += ".html";
+
+        return webUrl;
+    }
+
+
+
+    private String getWebUrl(String[] list){
+        if(Arrays.equals(list, case1))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case2))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case3))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case4))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case5))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case6))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case7))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case8))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case9))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case10))
+            url = urlGenerator(case1);
+        else  if(Arrays.equals(list,case11))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case12))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case13))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case14))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case15))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case16))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case17))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case18))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case19))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case20))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case21))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case22))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case23))
+            url = urlGenerator(case1);
+        else if(Arrays.equals(list,case24))
+            url = urlGenerator(case1);
+        else
+            url = "";
+        return url;
+    }
+
 }

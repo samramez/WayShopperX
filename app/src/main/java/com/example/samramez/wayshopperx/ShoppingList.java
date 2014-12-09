@@ -13,12 +13,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 
 public class ShoppingList extends Activity implements DidComeFromHome{
 
     private Button addButton;
     public EditText addItemEditText;
     private ViewGroup mContainerView;
+
+    //url for the WebView
+    public static String url = "";
+
+    //Generating the HashSet
+    public static ArrayList<String> hSet = new ArrayList<String>();
+
+    public static String[] listArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,90 +58,63 @@ public class ShoppingList extends Activity implements DidComeFromHome{
 
         if(
                 item.equalsIgnoreCase("apple") ||
-                item.equalsIgnoreCase("meat") ||
-                item.equalsIgnoreCase("juice") ||
-                item.equalsIgnoreCase("nuts") ||
-                item.equalsIgnoreCase("eggs")){
+                        item.equalsIgnoreCase("meat") ||
+                        item.equalsIgnoreCase("juice") ||
+                        item.equalsIgnoreCase("nuts") ||
+                        item.equalsIgnoreCase("eggs"))
+        {
 
+            if (  hSet.contains(new String(item)) == false  ){
+                //item exist and we want to add it to the list
 
-            //item exist and we want to add it to the list
+                //We add the item to the HashSet List
+                hSet.add(item);
 
-            //making the Save Button Visible
-            findViewById(R.id.shoppingListSaveButton).setVisibility(View.VISIBLE);
+                //making the Save Button Visible
+                findViewById(R.id.shoppingListSaveButton).setVisibility(View.INVISIBLE);
 
-            //making the Submit Button InVisible
-            findViewById(R.id.shoppingListSubmitButton).setVisibility(View.INVISIBLE);
+                //making the Submit Button InVisible
+                findViewById(R.id.shoppingListSubmitButton).setVisibility(View.VISIBLE);
 
+                // Instantiate a new "row" view.
+                final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
+                        R.layout.list_item_inflate, mContainerView, false);
 
-            // Instantiate a new "row" view.
-            final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
-                    R.layout.list_item_inflate, mContainerView, false);
+                ((TextView) newView.findViewById(android.R.id.text1)).setText(item);
 
+                // Set a click listener for the "X" button in the row that will remove the row.
+                newView.findViewById(R.id.delete_button).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // Remove the row from its parent (the container view).
+                        // Because mContainerView has android:animateLayoutChanges set to true,
+                        // this removal is automatically animated.
+                        mContainerView.removeView(newView);
 
-            /*
-            // ================================
-            //Test
+                        // If there are no rows remaining, show the empty view.
+                        if (mContainerView.getChildCount() == 0) {
+                            findViewById(android.R.id.empty).setVisibility(View.VISIBLE);
+                        }
+                    }
+                });
 
-            ArrayList<String> hSet = new ArrayList<String>();
-            //LinkedList<String> hSet = new LinkedList<String>()
-            //HashSet<String> hSet = new HashSet<String>();
-            hSet.add(new String("apple"));
-            hSet.add(new String("meat"));
-            hSet.add(new String("eggs"));
-            hSet.add(new String("juice"));
-            hSet.add(new String("nuts"));
+                // Because mContainerView has android:animateLayoutChanges set to true,
+                // adding this view is automatically animated.
+                mContainerView.addView(newView, 0);
 
-            java.util.Collections.sort(hSet);
-            String [] listArray = hSet.toArray(new String[hSet.size()]);
-
-            String result = "";
-//            for(int i=0; i<hSet.size() ; i++){
-//                result += hSet.get(i) + " - ";
-//            }
-            for(int i=0; i<listArray.length ; i++){
-                result += listArray[i] + " - ";
+                //clear the EditText for the next thing
+                addItemEditText.setText("");
+            }
+            else{
+                Toast.makeText(this, "Item already added",
+                        Toast.LENGTH_LONG).show();
             }
 
+        }
 
-             ((TextView) newView.findViewById(android.R.id.text1)).setText(result);
-
-
-            // ================================
-            //Test
-
-            */
-
-            item.toLowerCase();
-
-            ((TextView) newView.findViewById(android.R.id.text1)).setText(item);
-
-            // Set a click listener for the "X" button in the row that will remove the row.
-            newView.findViewById(R.id.delete_button).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // Remove the row from its parent (the container view).
-                    // Because mContainerView has android:animateLayoutChanges set to true,
-                    // this removal is automatically animated.
-                    mContainerView.removeView(newView);
-
-                    // If there are no rows remaining, show the empty view.
-                    if (mContainerView.getChildCount() == 0) {
-                        findViewById(android.R.id.empty).setVisibility(View.VISIBLE);
-                    }
-                }
-            });
-
-            // Because mContainerView has android:animateLayoutChanges set to true,
-            // adding this view is automatically animated.
-            mContainerView.addView(newView, 0);
-
-            //clear the EditText for the next thing
-            addItemEditText.setText("");
-
-
-        } else{
+        else{
             Toast.makeText(this, "Item doesn't exist in this store",
-                Toast.LENGTH_LONG).show();
+                    Toast.LENGTH_LONG).show();
         }
 
     }
@@ -141,7 +124,7 @@ public class ShoppingList extends Activity implements DidComeFromHome{
      * A static list of item names.
      */
     private static final String[] ITEMS = new String[]{
-            "Apple", "Orange", "Juice", "Meat",
+            "Apple", "Orange", "Juice", "Meat", "Water",
             "Cheese", "Eggs", "Ice Cream", "Butter", "Bread",
             "Nutella",
     };
@@ -178,23 +161,29 @@ public class ShoppingList extends Activity implements DidComeFromHome{
         Intent intent = new Intent(ShoppingList.this, MainActivity.class);
         startActivity(intent);
 
-
-
-
     }
 
     public void dontSaveAndGoToMainPage(View view) {
+
+        // clearing the list
+        hSet.clear();
+
         Intent intent = new Intent(ShoppingList.this, MainActivity.class);
         startActivity(intent);
     }
 
     public void saveAndGoToMap(View view) {
 
+        //converting HashSet to String Array
+        java.util.Collections.sort(hSet);
+        String [] listArray = hSet.toArray(new String[hSet.size()]);
 
-
-        Intent intent = new Intent(ShoppingList.this, MainActivity.class);
+        Intent intent = new Intent(ShoppingList.this, Map.class);
         startActivity(intent);
     }
 
+    public void TextFieldClicked(View view){
+        ((EditText) findViewById(R.id.addItemEditText)).setText("");
+    }
 
 }

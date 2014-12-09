@@ -71,10 +71,10 @@ public class ShoppingListFromStore extends Activity {
                 hSet.add(item);
 
                 //making the Save Button Visible
-                findViewById(R.id.shoppingListSaveButton).setVisibility(View.VISIBLE);
+                findViewById(R.id.shoppingListSaveButton).setVisibility(View.INVISIBLE);
 
                 //making the Submit Button InVisible
-                findViewById(R.id.shoppingListSubmitButton).setVisibility(View.INVISIBLE);
+                findViewById(R.id.shoppingListSubmitButton).setVisibility(View.VISIBLE);
 
                 // Instantiate a new "row" view.
                 final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
@@ -164,6 +164,10 @@ public class ShoppingListFromStore extends Activity {
     }
 
     public void dontSaveAndGoToMainPage(View view) {
+
+        // clearing the list
+        hSet.clear();
+
         Intent intent = new Intent(ShoppingListFromStore.this, MainActivity.class);
         startActivity(intent);
     }
@@ -176,6 +180,10 @@ public class ShoppingListFromStore extends Activity {
 
         Intent intent = new Intent(ShoppingListFromStore.this, Map.class);
         startActivity(intent);
+    }
+
+    public void TextFieldClicked(View view){
+        ((EditText) findViewById(R.id.addItemEditText)).setText("");
     }
 
 

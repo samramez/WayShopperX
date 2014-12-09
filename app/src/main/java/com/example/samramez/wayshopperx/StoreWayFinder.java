@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -30,7 +31,7 @@ public class StoreWayFinder extends Activity {
         addListenerToUnitTypeSpinner();
 
         zipCodeImageButton = (ImageButton) findViewById(R.id.zipCodeButton);
-        zipCodeImageButton.setBackgroundResource(R.drawable.ic_label_outline_black_48dp);
+        zipCodeImageButton.setBackgroundResource(R.drawable.arrow_right);
     }
 
 
@@ -100,17 +101,23 @@ public class StoreWayFinder extends Activity {
     // The code that says what happens when Zip Code is entered
     public void zipCodeClicked(View view) {
 
-        zipCodeImageButton.setBackgroundResource(R.drawable.ic_label_black_48dp);
+        //zipCodeImageButton.setBackgroundResource(R.drawable.ic_label_black_48dp);
+
+        findViewById(R.id.zipCodeButton).setVisibility(View.INVISIBLE);
+        findViewById(R.id.zipCodeButtonChecked).setVisibility(View.VISIBLE);
+
 
         //findViewById(R.id.coffee_list).setVisibility(View.GONE);
         findViewById(R.id.storeLinearLayout).setVisibility(View.VISIBLE);
+
+        //zipCodeButtonChecked
 
     }
 
 
     public void goToChoosingList(View view) {
 
-        zipCodeImageButton.setBackgroundResource(R.drawable.ic_label_black_48dp);
+        zipCodeImageButton.setBackgroundResource(R.drawable.tick);
 
         Toast.makeText(this, "Prepare The Shopping List!",
                 Toast.LENGTH_LONG).show();
@@ -129,5 +136,9 @@ public class StoreWayFinder extends Activity {
         Intent intent = new Intent(StoreWayFinder.this, MainActivity.class);
         startActivity(intent);
 
+    }
+
+    public void TextFieldClicked(View view){
+        ((EditText) findViewById(R.id.zipCodeEditText)).setText("");
     }
 }
