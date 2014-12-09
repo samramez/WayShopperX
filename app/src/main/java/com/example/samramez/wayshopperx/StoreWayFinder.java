@@ -1,11 +1,13 @@
 package com.example.samramez.wayshopperx;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -19,6 +21,7 @@ public class StoreWayFinder extends Activity {
     ImageButton zipCodeImageButton;
     private Spinner shopSpinner;
 
+    EditText zipCodeEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,8 @@ public class StoreWayFinder extends Activity {
         addItemsToUnitTypeSpinner();
         // Add listener to the Spinner
         addListenerToUnitTypeSpinner();
+
+        zipCodeEditText = (EditText) findViewById(R.id.zipCodeEditText);
 
         zipCodeImageButton = (ImageButton) findViewById(R.id.zipCodeButton);
         zipCodeImageButton.setBackgroundResource(R.drawable.arrow_right);
@@ -101,8 +106,11 @@ public class StoreWayFinder extends Activity {
     // The code that says what happens when Zip Code is entered
     public void zipCodeClicked(View view) {
 
-        //zipCodeImageButton.setBackgroundResource(R.drawable.ic_label_black_48dp);
+        InputMethodManager imm = (InputMethodManager)getSystemService(
+                Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(zipCodeEditText.getWindowToken(), 0);
 
+        //zipCodeImageButton.setBackgroundResource(R.drawable.ic_label_black_48dp);
         findViewById(R.id.zipCodeButton).setVisibility(View.INVISIBLE);
         findViewById(R.id.zipCodeButtonChecked).setVisibility(View.VISIBLE);
 
@@ -119,10 +127,10 @@ public class StoreWayFinder extends Activity {
 
         zipCodeImageButton.setBackgroundResource(R.drawable.tick);
 
-        Toast.makeText(this, "Prepare The Shopping List!",
-                Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, "Prepare The Shopping List!",
+//                Toast.LENGTH_LONG).show();
 
-        Intent intent = new Intent(StoreWayFinder.this, ChooseList.class);
+        Intent intent = new Intent(StoreWayFinder.this, ShoppingListFromStore.class);
         startActivity(intent);
 
     }

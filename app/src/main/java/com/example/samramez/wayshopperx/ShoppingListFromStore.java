@@ -23,7 +23,7 @@ public class ShoppingListFromStore extends Activity {
     private ViewGroup mContainerView;
 
     //url for the WebView
-    public static String url = "";
+    public static String url = "http://hapoojoon.com/subMap/storeMap/start-eggs-juice.html";
 
     //Generating the HashSet
     public static ArrayList<String> hSet = new ArrayList<String>();
@@ -176,7 +176,7 @@ public class ShoppingListFromStore extends Activity {
 
         //converting HashSet to String Array
         java.util.Collections.sort(hSet);
-        String [] listArray = hSet.toArray(new String[hSet.size()]);
+        listArray = hSet.toArray(new String[hSet.size()]);
 
         Intent intent = new Intent(ShoppingListFromStore.this, Map.class);
         startActivity(intent);

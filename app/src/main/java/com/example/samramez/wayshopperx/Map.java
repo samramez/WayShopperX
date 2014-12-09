@@ -19,6 +19,7 @@ public class Map extends Activity {
 
     private String[] list = ShoppingListFromStore.listArray;
 
+
     String apple = "apple";
     String juice = "juice";
     String eggs = "eggs";
@@ -49,13 +50,6 @@ public class Map extends Activity {
     String[] case23= {eggs, meat, nuts};
     String[] case24= {juice, meat, nuts};
 
-
-
-
-
-
-
-
     //Getting the url from the link
     String webUrl = ShoppingListFromStore.url;
 
@@ -65,6 +59,9 @@ public class Map extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+        //
+        String blah = arrayToString(list);
 
         // getting the web url from the list
         url = getWebUrl(list);
@@ -113,7 +110,10 @@ public class Map extends Activity {
     private String urlGenerator(String[] array){
         String webUrl = "http://hapoojoon.com/subMap/storeMap/";
         for(int i=0; i<array.length; i++){
-            webUrl += array[i] + "-";
+            if(i == array.length -1)
+                webUrl += array[i];
+            else
+                webUrl += array[i] + "-";
         }
         webUrl += ".html";
 
@@ -123,7 +123,10 @@ public class Map extends Activity {
     private String urlGeneratorFromStart(String[] array){
         String webUrl = "http://hapoojoon.com/subMap/storeMap/start-";
         for(int i=0; i<array.length; i++){
-            webUrl += array[i] + "-";
+            if(i == array.length -1)
+                webUrl += array[i];
+            else
+                webUrl += array[i] + "-";
         }
         webUrl += ".html";
 
@@ -136,53 +139,53 @@ public class Map extends Activity {
         if(Arrays.equals(list, case1))
             url = urlGenerator(case1);
         else if(Arrays.equals(list,case2))
-            url = urlGenerator(case1);
+            url = urlGenerator(case2);
         else if(Arrays.equals(list,case3))
-            url = urlGenerator(case1);
+            url = urlGenerator(case3);
         else if(Arrays.equals(list,case4))
-            url = urlGenerator(case1);
+            url = urlGenerator(case4);
         else if(Arrays.equals(list,case5))
-            url = urlGenerator(case1);
+            url = urlGenerator(case5);
         else if(Arrays.equals(list,case6))
-            url = urlGenerator(case1);
+            url = urlGenerator(case6);
         else if(Arrays.equals(list,case7))
-            url = urlGenerator(case1);
+            url = urlGenerator(case7);
         else if(Arrays.equals(list,case8))
-            url = urlGenerator(case1);
+            url = urlGenerator(case8);
         else if(Arrays.equals(list,case9))
-            url = urlGenerator(case1);
+            url = urlGenerator(case9);
         else if(Arrays.equals(list,case10))
-            url = urlGenerator(case1);
+            url = urlGenerator(case10);
         else  if(Arrays.equals(list,case11))
-            url = urlGenerator(case1);
+            url = urlGeneratorFromStart(case11);
         else if(Arrays.equals(list,case12))
-            url = urlGenerator(case1);
+            url = urlGeneratorFromStart(case12);
         else if(Arrays.equals(list,case13))
-            url = urlGenerator(case1);
+            url = urlGeneratorFromStart(case13);
         else if(Arrays.equals(list,case14))
-            url = urlGenerator(case1);
+            url = urlGeneratorFromStart(case14);
         else if(Arrays.equals(list,case15))
-            url = urlGenerator(case1);
+            url = urlGeneratorFromStart(case15);
         else if(Arrays.equals(list,case16))
-            url = urlGenerator(case1);
+            url = urlGeneratorFromStart(case16);
         else if(Arrays.equals(list,case17))
-            url = urlGenerator(case1);
+            url = urlGeneratorFromStart(case17);
         else if(Arrays.equals(list,case18))
-            url = urlGenerator(case1);
+            url = urlGeneratorFromStart(case18);
         else if(Arrays.equals(list,case19))
-            url = urlGenerator(case1);
+            url = urlGeneratorFromStart(case19);
         else if(Arrays.equals(list,case20))
-            url = urlGenerator(case1);
+            url = urlGeneratorFromStart(case20);
         else if(Arrays.equals(list,case21))
-            url = urlGenerator(case1);
+            url = urlGeneratorFromStart(case21);
         else if(Arrays.equals(list,case22))
-            url = urlGenerator(case1);
+            url = urlGenerator(case22);
         else if(Arrays.equals(list,case23))
-            url = urlGenerator(case1);
+            url = urlGenerator(case23);
         else if(Arrays.equals(list,case24))
-            url = urlGenerator(case1);
+            url = urlGenerator(case24);
         else
-            url = "";
+            url = "http://hapoojoon.com/subMap/storeMap/start-eggs-juice-meat-nuts.html";
         return url;
     }
 
