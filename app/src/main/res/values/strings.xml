@@ -34,7 +34,7 @@
     <string name="title_activity_item_finding">Item Finding</string>
 
     <string-array name="items">
-        <item>Start</item>
+        <item>Entrance</item>
         <item>Apples</item>
         <item>Meat</item>
         <item>Eggs</item>
@@ -44,5 +44,6 @@
     </string-array>
 
     <string name="title_activity_map">Map</string>
+    <string name="title_activity_map_item">MapItem</string>
 
 </resources>

@@ -1,9 +1,11 @@
 package com.example.samramez.wayshopperx;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
@@ -64,7 +66,9 @@ public class Map extends Activity {
         String blah = arrayToString(list);
 
         // getting the web url from the list
-        url = getWebUrl(list);
+        //url = getWebUrl(list);
+
+        url = urlGenerator(list);
 
         myWebView = (WebView) findViewById(R.id.webview);
         myWebView.loadUrl(url);
@@ -73,6 +77,8 @@ public class Map extends Activity {
         webSettings = myWebView.getSettings();
         webSettings.setBuiltInZoomControls(true);
         webSettings.setSupportZoom(true);
+
+        ShoppingListFromStore.hSet.clear();
 
         //enabling JavaScript in the app
         webSettings.setJavaScriptEnabled(true);
@@ -108,7 +114,7 @@ public class Map extends Activity {
     }
 
     private String urlGenerator(String[] array){
-        String webUrl = "http://hapoojoon.com/subMap/storeMap/";
+        String webUrl = "http://hapoojoon.com/subMap/storeMap/start-";
         for(int i=0; i<array.length; i++){
             if(i == array.length -1)
                 webUrl += array[i];
@@ -121,7 +127,7 @@ public class Map extends Activity {
     }
 
     private String urlGeneratorFromStart(String[] array){
-        String webUrl = "http://hapoojoon.com/subMap/storeMap/start-";
+        String webUrl = "http://hapoojoon.com/subMap/storeMap/";
         for(int i=0; i<array.length; i++){
             if(i == array.length -1)
                 webUrl += array[i];
@@ -187,6 +193,14 @@ public class Map extends Activity {
         else
             url = "http://hapoojoon.com/subMap/storeMap/start-eggs-juice-meat-nuts.html";
         return url;
+    }
+
+    public void goBack(View view) {
+
+        ShoppingListFromStore.hSet.clear();
+
+        Intent intent = new Intent(Map.this, ShoppingListFromStore.class);
+        startActivity(intent);
     }
 
 }

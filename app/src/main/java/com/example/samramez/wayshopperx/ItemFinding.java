@@ -15,6 +15,9 @@ public class ItemFinding extends Activity {
     private Spinner fromItemSpinner;
     private Spinner targetItemshopSpinner;
 
+    public static String from = "";
+    public static String target = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +78,8 @@ public class ItemFinding extends Activity {
 
         fromItemSpinner = (Spinner) findViewById(R.id.spinner2);
 
+        from = fromItemSpinner.getSelectedItem().toString();
+
         fromItemSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -119,6 +124,8 @@ public class ItemFinding extends Activity {
 
         targetItemshopSpinner = (Spinner) findViewById(R.id.spinner3);
 
+        target = targetItemshopSpinner.getSelectedItem().toString();
+
         targetItemshopSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -137,4 +144,6 @@ public class ItemFinding extends Activity {
         });
 
     }
+
+
 }

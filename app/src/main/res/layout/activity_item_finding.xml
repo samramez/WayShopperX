@@ -6,7 +6,9 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.samramez.wayshopperx.ItemFinding"
     android:orientation="vertical"
-    android:background="#97bababa">
+    android:layout_marginTop="50dp">
+
+
 
 
     <TextView
@@ -56,5 +58,14 @@
         android:layout_alignStart="@+id/spinner2" />
 
 
+    <Button
+        android:layout_marginTop="50dp"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/shoppingListSubmitButton"
+        android:layout_gravity="right|bottom"
+        android:onClick="saveAndGoToMap"
+        android:visibility="visible"/>
 
 </LinearLayout>

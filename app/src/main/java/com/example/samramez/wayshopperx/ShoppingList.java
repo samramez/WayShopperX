@@ -56,12 +56,7 @@ public class ShoppingList extends Activity implements DidComeFromHome{
         String item;
         item = addItemEditText.getText().toString();
 
-        if(
-                item.equalsIgnoreCase("apple") ||
-                        item.equalsIgnoreCase("meat") ||
-                        item.equalsIgnoreCase("juice") ||
-                        item.equalsIgnoreCase("nuts") ||
-                        item.equalsIgnoreCase("eggs"))
+        if(true)
         {
 
             if (  hSet.contains(new String(item)) == false  ){
