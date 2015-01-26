@@ -12,7 +12,7 @@ We have 3 options here:
 ..* Inside Store Way finder
 ..* Outside Store Way finder
 
-![alt text][http://hapoojoon.com/wayshopperimages/home.png]
+![alt text](http://hapoojoon.com/wayshopperimages/home.png)
 
 
 #### 1. Shopping List
@@ -20,7 +20,7 @@ We have 3 options here:
 This section of the app can be used as a shopping list when we're certain regards the items in the store and we are only interested to have a record of the items that we are buying.
 User can add any item to his/her list and app doesn't ristrict the user from entering invalid items. (Unlike other sections where there are restrictions)
 
-![alt text][http://hapoojoon.com/wayshopperimages/list1.png]   ![alt text][http://hapoojoon.com/wayshopperimages/list2.png]
+![alt text](http://hapoojoon.com/wayshopperimages/list1.png)   ![alt text](http://hapoojoon.com/wayshopperimages/list2.png)
 
 
 #### 2. Find Way inside the store.
