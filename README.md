@@ -42,6 +42,8 @@ Basically this algorithm is finding the shortest path in a graph when we "have t
 
 What happens is that each item has a node in the graph and those items which user picks, goes inside a list. Then, my program searches for the shortest path available to any of these items. Then that item goes off the list and from that point new dijsktra's algorithm is run for finding the shortest path to the next item and so on.
 
-This code is written in JavaScpript and the map is located on my cloud and it is run as a WebView html screen. I will provide the code for this algorithm along with a test cases soon.
+This code is written in JavaScpript and the map is located on my cloud and it is run as a WebView html screen.
+
+I have dedicated a repository just for this algorithm and how it works. You can learn more about it by clicking [here](https://github.com/samramez/Shortest_path_between_multiple_nodes_in_graph) .
 
 
